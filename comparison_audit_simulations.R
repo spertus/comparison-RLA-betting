@@ -16,7 +16,7 @@ optimal_lambda <- function(a, p_1, p_2){
     log_expected_value(lambda, a = a, p_1 = p_1, p_2 = p_2)
   }
   derivative <- function(lambda){
-    (a - 1/2) * (1 - p_1 - p_2) / (1 + lambda * (a - 1/2)) + (a - 1) * p_1 / (2 - lambda * (1 - a)) + p_2 / (2 - lambda)
+    (a - 1/2) * (1 - p_1 - p_2) / (1 + lambda * (a - 1/2)) + (a - 1) * p_1 / (2 - lambda * (1 - a)) - p_2 / (2 - lambda)
   }
   solution <- optimize(temp_log_expected_value, interval = c(0,2), maximum = TRUE)
   solution$maximum
